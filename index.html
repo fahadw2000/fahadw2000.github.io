@@ -129,15 +129,17 @@ section+section{border-top:1px solid var(--border)}
 footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;font-size:12px;color:var(--muted);font-family:var(--mono)}
 .tl{position:relative;height:590px}
 .tl-axis{position:absolute;left:50%;top:46px;bottom:12px;width:1px;background:var(--border)}
-.tl-band{position:absolute;left:calc(50% - 22px);width:44px;top:65px;height:83px;background:var(--muted);opacity:.14;border-radius:2px}
+.tl-band{position:absolute;left:40px;right:30px;top:65px;height:83px;background:var(--muted);opacity:.10;border-radius:2px}
 .tl-now{position:absolute;left:50%;top:26px;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 .tl-year{position:absolute;left:0;font-family:var(--mono);font-size:10px;color:var(--muted);line-height:16px}
 .tl-tick{position:absolute;left:40px;width:10px;height:1px;background:var(--border)}
 .tl-bar{position:absolute;width:10px;border-radius:2px}
-.tl-bar.edu{right:calc(50% + 4px);background:var(--accent)}
+.tl-bar.edu{right:calc(50% + 4px);background:#378ADD}
+.tl-bar.edu.feat{width:16px;background:#185FA5}
 .tl-bar.exp{left:calc(50% + 4px);background:var(--amber)}
 .tl-link{position:absolute;height:1px;background:var(--border)}
 .tl-link.edu{right:calc(50% + 14px);width:16px}
+.tl-link.edu.feat{right:calc(50% + 20px);width:10px}
 .tl-link.exp{left:calc(50% + 14px);width:26px}
 .tl-card{position:absolute;width:calc(50% - 70px);min-height:66px;padding:.55rem .85rem;border-radius:8px;border:1px solid;outline:none}
 .tl-card.edu{right:calc(50% + 30px);background:var(--accent-light);border-color:rgba(35,84,180,.35)}
@@ -145,6 +147,14 @@ footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;
 .tl-card .split-meta{margin-bottom:.1rem}
 .tl-card .split-title{font-size:.85rem}
 .tl-card .split-org{margin-bottom:0;font-size:.78rem}
+.tl-card.feat{height:153px;background:#185FA5;border-color:#185FA5}
+.tl-tag{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#B5D4F4;margin-bottom:.25rem}
+.tl-card.feat .split-title{color:#fff;font-size:1.05rem}
+.tl-card.feat .split-org{color:#E6F1FB}
+.tl-card.feat .split-meta{color:#B5D4F4;margin:.15rem 0 .5rem}
+.tl-card.feat .split-bullets{margin:0}
+.tl-card.feat .split-bullets li{color:#E6F1FB;padding:.05rem 0 .05rem 1rem}
+.tl-card.feat .split-bullets li::before{color:#B5D4F4}
 .tl-more{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:10;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.7rem .9rem}
 .tl-card:hover,.tl-card:focus{z-index:9}
 .tl-card:hover .tl-more,.tl-card:focus .tl-more,.tl-card:focus-within .tl-more{display:block}
@@ -165,6 +175,7 @@ footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;
 .tl{height:auto;display:flex;flex-direction:column;gap:.8rem}
 .tl-axis,.tl-band,.tl-now,.tl-year,.tl-tick,.tl-bar,.tl-link,.tl-hint{display:none}
 .tl-card{position:static;width:auto;top:auto!important;left:auto;right:auto}
+.tl-card.feat{height:auto}
 .tl-more{display:block;position:static;margin-top:.5rem;background:transparent;border:none;padding:0}}
 </style>
 </head>
@@ -339,12 +350,12 @@ footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;
       <span class="tl-year" style="top:560px">2014</span><i class="tl-tick" style="top:568px"></i>
       <i class="tl-bar exp" style="top:53px;height:8px"></i>
       <i class="tl-bar exp" style="top:61px;height:87px"></i>
-      <i class="tl-bar edu" style="top:65px;height:153px"></i>
+      <i class="tl-bar edu feat" style="top:65px;height:153px"></i>
       <i class="tl-bar exp" style="top:232px;height:143px"></i>
       <i class="tl-bar edu" style="top:391px;height:150px"></i>
       <i class="tl-link exp" style="top:57px"></i>
       <i class="tl-link exp" style="top:104px"></i>
-      <i class="tl-link edu" style="top:141px"></i>
+      <i class="tl-link edu feat" style="top:141px"></i>
       <i class="tl-link exp" style="top:303px"></i>
       <i class="tl-link edu" style="top:466px"></i>
       <div class="tl-card exp" tabindex="0" style="top:8px"><p class="split-meta" data-en="Sep 2026 – Present" data-de="Sep. 2026 – heute">Sep 2026 – Present</p>
@@ -360,9 +371,7 @@ footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;
           <li data-en="Monitored and optimised real-time operational metrics (order accuracy, stock flow, on-time delivery)" data-de="Echtzeit-Betriebskennzahlen (Bestellgenauigkeit, Bestandsfluss, Pünktlichkeit) überwacht und optimiert">Monitored and optimised real-time operational metrics (order accuracy, stock flow, on-time delivery)</li>
           <li data-en="Led a team of riders and pickers; resolved live issues and maintained execution quality under time pressure" data-de="Team aus Fahrern und Kommissionierern angeleitet; Störungen live gelöst und Ausführungsqualität unter Zeitdruck gesichert">Led a team of riders and pickers; resolved live issues and maintained execution quality under time pressure</li>
         </ul></div></div>
-      <div class="tl-card edu" tabindex="0" style="top:108px"><p class="split-meta">Oct 2022 – Aug 2026</p>
-        <h3 class="split-title">M.Sc. E-Mobilität (ACES)</h3>
-        <p class="split-org">FAU Erlangen-Nürnberg</p><div class="tl-more"><ul class="split-bullets"><li data-en="Specialisations: AI & Autonomous Driving, E-Powertrain" data-de="Vertiefungen: AI & Autonomous Driving, E-Powertrain">Specialisations: AI & Autonomous Driving, E-Powertrain</li></ul></div></div>
+      <div class="tl-card edu feat" tabindex="0" style="top:65px"><span class="tl-tag" data-en="Master's degree" data-de="Masterabschluss">Master's degree</span><h3 class="split-title">M.Sc. E-Mobilität (ACES)</h3><p class="split-org">FAU Erlangen-Nürnberg</p><p class="split-meta">Oct 2022 – Aug 2026</p><ul class="split-bullets"><li>AI &amp; Autonomous Driving</li><li>E-Powertrain</li></ul></div>
       <div class="tl-card exp" tabindex="0" style="top:270px"><p class="split-meta">Nov 2018 – May 2022</p>
         <h3 class="split-title" data-en="Maintenance Engineer" data-de="Wartungsingenieur">Maintenance Engineer</h3>
         <p class="split-org">Corps of EME, Pakistan Army</p><div class="tl-more"><ul class="split-bullets">
@@ -374,6 +383,7 @@ footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;
         <h3 class="split-title">B.Sc. Mechanical Engineering</h3>
         <p class="split-org">NUST, Islamabad</p></div>
     </div>
+    <p class="tl-hint" data-en="Shaded band: master's studies and work at the same time." data-de="Schattierter Bereich: Masterstudium und Berufstätigkeit gleichzeitig.">Shaded band: master's studies and work at the same time.</p>
     <p class="tl-hint" data-en="Hover or tap an entry for details." data-de="Für Details Eintrag überfahren oder antippen.">Hover or tap an entry for details.</p>
 
     <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)">
