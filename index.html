@@ -127,6 +127,29 @@ section+section{border-top:1px solid var(--border)}
 .contact-icon-btn{display:flex;flex-direction:column;align-items:center;gap:8px;padding:1.4rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--muted);font-size:11px;font-family:var(--mono);font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:all .18s;min-width:100px}
 .contact-icon-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light);transform:translateY(-2px)}
 footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;font-size:12px;color:var(--muted);font-family:var(--mono)}
+.tl{position:relative;height:590px}
+.tl-axis{position:absolute;left:50%;top:46px;bottom:12px;width:1px;background:var(--border)}
+.tl-band{position:absolute;left:calc(50% - 22px);width:44px;top:65px;height:83px;background:var(--muted);opacity:.14;border-radius:2px}
+.tl-now{position:absolute;left:50%;top:26px;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.tl-year{position:absolute;left:0;font-family:var(--mono);font-size:10px;color:var(--muted);line-height:16px}
+.tl-tick{position:absolute;left:40px;width:10px;height:1px;background:var(--border)}
+.tl-bar{position:absolute;width:10px;border-radius:2px}
+.tl-bar.edu{right:calc(50% + 4px);background:var(--accent)}
+.tl-bar.exp{left:calc(50% + 4px);background:var(--amber)}
+.tl-link{position:absolute;height:1px;background:var(--border)}
+.tl-link.edu{right:calc(50% + 14px);width:16px}
+.tl-link.exp{left:calc(50% + 14px);width:26px}
+.tl-card{position:absolute;width:calc(50% - 70px);min-height:66px;padding:.55rem .85rem;border-radius:8px;border:1px solid;outline:none}
+.tl-card.edu{right:calc(50% + 30px);background:var(--accent-light);border-color:rgba(35,84,180,.35)}
+.tl-card.exp{left:calc(50% + 40px);background:var(--amber-light);border-color:rgba(160,120,64,.4)}
+.tl-card .split-meta{margin-bottom:.1rem}
+.tl-card .split-title{font-size:.85rem}
+.tl-card .split-org{margin-bottom:0;font-size:.78rem}
+.tl-more{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:10;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.7rem .9rem}
+.tl-card:hover,.tl-card:focus{z-index:9}
+.tl-card:hover .tl-more,.tl-card:focus .tl-more,.tl-card:focus-within .tl-more{display:block}
+.tl-more .split-bullets{margin:0}
+.tl-hint{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:.6rem}
 @media(max-width:640px){
 .nav-links{display:none}
 #hero{padding:7rem 0 4rem}
@@ -138,6 +161,11 @@ footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;
 .split-timeline::before,.split-header,.split-cell.empty{display:none}
 .split-cell.left,.split-cell.right{padding:0 0 1.8rem 1.4rem;text-align:left}
 .split-cell.left:not(.empty)::after{right:auto;left:-5px}}
+@media(max-width:640px){
+.tl{height:auto;display:flex;flex-direction:column;gap:.8rem}
+.tl-axis,.tl-band,.tl-now,.tl-year,.tl-tick,.tl-bar,.tl-link,.tl-hint{display:none}
+.tl-card{position:static;width:auto;top:auto!important;left:auto;right:auto}
+.tl-more{display:block;position:static;margin-top:.5rem;background:transparent;border:none;padding:0}}
 </style>
 </head>
 <body>
@@ -298,59 +326,55 @@ footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;
       <div class="split-col-label edu"><span class="dot"></span><span data-en="Education" data-de="Ausbildung">Education</span></div>
       <div class="split-col-label exp"><span class="dot"></span><span data-en="Experience" data-de="Erfahrung">Experience</span></div>
     </div>
-    <div class="split-timeline">
-
-      <div class="split-cell left empty"></div>
-      <div class="split-cell right">
-        <p class="split-meta" data-en="Sep 2026 – Present" data-de="Sep. 2026 – heute">Sep 2026 – Present</p>
+    <div class="tl">
+      <div class="tl-axis"></div>
+      <div class="tl-band"></div>
+      <span class="tl-now" data-en="Now" data-de="Jetzt">Now</span>
+      <span class="tl-year" style="top:80px">2026</span><i class="tl-tick" style="top:88px"></i>
+      <span class="tl-year" style="top:160px">2024</span><i class="tl-tick" style="top:168px"></i>
+      <span class="tl-year" style="top:240px">2022</span><i class="tl-tick" style="top:248px"></i>
+      <span class="tl-year" style="top:320px">2020</span><i class="tl-tick" style="top:328px"></i>
+      <span class="tl-year" style="top:400px">2018</span><i class="tl-tick" style="top:408px"></i>
+      <span class="tl-year" style="top:480px">2016</span><i class="tl-tick" style="top:488px"></i>
+      <span class="tl-year" style="top:560px">2014</span><i class="tl-tick" style="top:568px"></i>
+      <i class="tl-bar exp" style="top:53px;height:8px"></i>
+      <i class="tl-bar exp" style="top:61px;height:87px"></i>
+      <i class="tl-bar edu" style="top:65px;height:153px"></i>
+      <i class="tl-bar exp" style="top:232px;height:143px"></i>
+      <i class="tl-bar edu" style="top:391px;height:150px"></i>
+      <i class="tl-link exp" style="top:57px"></i>
+      <i class="tl-link exp" style="top:104px"></i>
+      <i class="tl-link edu" style="top:141px"></i>
+      <i class="tl-link exp" style="top:303px"></i>
+      <i class="tl-link edu" style="top:466px"></i>
+      <div class="tl-card exp" tabindex="0" style="top:8px"><p class="split-meta" data-en="Sep 2026 – Present" data-de="Sep. 2026 – heute">Sep 2026 – Present</p>
         <h3 class="split-title" data-en="Warehouse Associate" data-de="Lagermitarbeiter">Warehouse Associate</h3>
-        <p class="split-org">REWE</p>
-        <ul class="split-bullets">
+        <p class="split-org">REWE</p><div class="tl-more"><ul class="split-bullets">
           <li data-en="Pick and prepare customer orders for large stores and delivery customers, with a focus on accuracy and speed" data-de="Kommissionierung von Kundenbestellungen für Märkte und Lieferkunden, mit Fokus auf Genauigkeit und Tempo">Pick and prepare customer orders for large stores and delivery customers, with a focus on accuracy and speed</li>
           <li data-en="Meet daily picking targets in a time-critical warehouse operation while maintaining picking accuracy" data-de="Einhaltung der täglichen Kommissionierziele in einem zeitkritischen Lagerbetrieb bei gleichbleibender Genauigkeit">Meet daily picking targets in a time-critical warehouse operation while maintaining picking accuracy</li>
           <li data-en="Train new colleagues in picking procedures and warehouse processes" data-de="Einarbeitung neuer Kolleginnen und Kollegen in Kommissionierabläufe und Lagerprozesse">Train new colleagues in picking procedures and warehouse processes</li>
-        </ul>
-      </div>
-
-      <div class="split-cell left empty"></div>
-      <div class="split-cell right">
-        <p class="split-meta">Jul 2024 – Sep 2026</p>
+        </ul></div></div>
+      <div class="tl-card exp" tabindex="0" style="top:92px"><p class="split-meta">Jul 2024 – Sep 2026</p>
         <h3 class="split-title" data-en="Team Lead & Operations Staff" data-de="Teamleiter & Operations">Team Lead & Operations Staff</h3>
-        <p class="split-org">Flink SE, Erlangen</p>
-        <ul class="split-bullets">
+        <p class="split-org">Flink SE, Erlangen</p><div class="tl-more"><ul class="split-bullets">
           <li data-en="Monitored and optimised real-time operational metrics (order accuracy, stock flow, on-time delivery)" data-de="Echtzeit-Betriebskennzahlen (Bestellgenauigkeit, Bestandsfluss, Pünktlichkeit) überwacht und optimiert">Monitored and optimised real-time operational metrics (order accuracy, stock flow, on-time delivery)</li>
           <li data-en="Led a team of riders and pickers; resolved live issues and maintained execution quality under time pressure" data-de="Team aus Fahrern und Kommissionierern angeleitet; Störungen live gelöst und Ausführungsqualität unter Zeitdruck gesichert">Led a team of riders and pickers; resolved live issues and maintained execution quality under time pressure</li>
-        </ul>
-      </div>
-
-      <div class="split-cell left">
-        <p class="split-meta">Oct 2022 – Aug 2026</p>
+        </ul></div></div>
+      <div class="tl-card edu" tabindex="0" style="top:108px"><p class="split-meta">Oct 2022 – Aug 2026</p>
         <h3 class="split-title">M.Sc. E-Mobilität (ACES)</h3>
-        <p class="split-org">FAU Erlangen-Nürnberg</p>
-        <ul class="split-bullets" style="margin:0"><li data-en="Specialisations: AI & Autonomous Driving, E-Powertrain" data-de="Vertiefungen: AI & Autonomous Driving, E-Powertrain" style="padding:.1rem 0">Specialisations: AI & Autonomous Driving, E-Powertrain</li></ul>
-      </div>
-      <div class="split-cell right empty"></div>
-
-      <div class="split-cell left empty"></div>
-      <div class="split-cell right">
-        <p class="split-meta">Nov 2018 – May 2022</p>
+        <p class="split-org">FAU Erlangen-Nürnberg</p><div class="tl-more"><ul class="split-bullets"><li data-en="Specialisations: AI & Autonomous Driving, E-Powertrain" data-de="Vertiefungen: AI & Autonomous Driving, E-Powertrain">Specialisations: AI & Autonomous Driving, E-Powertrain</li></ul></div></div>
+      <div class="tl-card exp" tabindex="0" style="top:270px"><p class="split-meta">Nov 2018 – May 2022</p>
         <h3 class="split-title" data-en="Maintenance Engineer" data-de="Wartungsingenieur">Maintenance Engineer</h3>
-        <p class="split-org">Corps of EME, Pakistan Army</p>
-        <ul class="split-bullets">
+        <p class="split-org">Corps of EME, Pakistan Army</p><div class="tl-more"><ul class="split-bullets">
           <li data-en="Managed overhaul operations for a 120-vehicle fleet with 50+ technicians, from diagnostics to return to service; trained technicians on modern and hybrid vehicle systems" data-de="Instandsetzung einer 120-Fahrzeug-Flotte mit 50+ Technikern verantwortet, von Diagnose bis Rückführung in den Einsatz; Techniker zu modernen und hybriden Fahrzeugsystemen geschult">Managed overhaul operations for a 120-vehicle fleet with 50+ technicians, from diagnostics to return to service; trained technicians on modern and hybrid vehicle systems</li>
           <li data-en="Designed data-driven maintenance schedules that raised mission-ready vehicles from 100 to 150 units and cleared the backlog" data-de="Datenbasierte Wartungsplanung: einsatzbereite Fahrzeuge von 100 auf 150 gesteigert, Rückstau abgebaut">Designed data-driven maintenance schedules that raised mission-ready vehicles from 100 to 150 units and cleared the backlog</li>
           <li data-en="Used ECU diagnostic data for predictive fault analysis, identified recurring failure patterns and reduced unplanned downtime through proactive measures" data-de="ECU-Diagnosedaten für prädiktive Fehleranalyse genutzt, wiederkehrende Ausfallmuster erkannt und Stillstandszeiten durch vorbeugende Maßnahmen reduziert">Used ECU diagnostic data for predictive fault analysis, identified recurring failure patterns and reduced unplanned downtime through proactive measures</li>
-        </ul>
-      </div>
-
-      <div class="split-cell left">
-        <p class="split-meta">Sep 2014 – Jun 2018</p>
+        </ul></div></div>
+      <div class="tl-card edu" tabindex="0" style="top:433px"><p class="split-meta">Sep 2014 – Jun 2018</p>
         <h3 class="split-title">B.Sc. Mechanical Engineering</h3>
-        <p class="split-org">National University of Science & Technology, Islamabad</p>
-      </div>
-      <div class="split-cell right empty"></div>
-    
+        <p class="split-org">NUST, Islamabad</p></div>
     </div>
+    <p class="tl-hint" data-en="Hover or tap an entry for details." data-de="Für Details Eintrag überfahren oder antippen.">Hover or tap an entry for details.</p>
 
     <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)">
       <p class="section-label" data-en="Certifications" data-de="Zertifizierungen">Certifications</p>
